@@ -10,8 +10,8 @@ st.write("Draw points on the canvas using spray effect. Each class can have a di
 canvas_params = ccg.draw_classification_canvas()
 
 # Add a clear button
-if st.button("Clear Canvas"):
-    st.session_state["classification_canvas"] = None
+# if st.button("Clear Canvas"):
+#     st.session_state["classification_canvas"] = None
 
 # Create two columns for canvas and plot
 canvas_col, plot_col = st.columns(2)
@@ -21,7 +21,6 @@ with canvas_col:
     st.markdown("👇 **Click to draw points below**")
     
     # Create canvas with container
-    st.markdown('<div class="canvas-container">', unsafe_allow_html=True)
     canvas_result = st_canvas(
         fill_color="rgba(255, 165, 0, 0.3)",
         stroke_width=canvas_params["stroke_width"],
@@ -32,7 +31,6 @@ with canvas_col:
         drawing_mode="circle",
         key="classification_canvas",
     )
-    st.markdown('</div>', unsafe_allow_html=True)
 
 with plot_col:
     st.markdown("### Generated Dataset")
